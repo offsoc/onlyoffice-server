@@ -192,7 +192,7 @@ describe('Command service', function () {
           }
           urlPattern = host + '/files/forgotten/--key--/output.docx';
         } else {
-          let host = cfgEndpoint.slice(0, "https://".length) + cfgAccessKeyId + "." + cfgEndpoint.slice("https://".length) + '/' + cfgBucketName;
+          let host = cfgEndpoint.slice(0, "https://".length) + (cfgEndpoint.includes(cfgAccessKeyId) ? '' : cfgAccessKeyId + "." )+ cfgEndpoint.slice("https://".length) + '/' + cfgBucketName;
           if (host[host.length - 1] === '/') {
             host = host.slice(0, -1);
           }
